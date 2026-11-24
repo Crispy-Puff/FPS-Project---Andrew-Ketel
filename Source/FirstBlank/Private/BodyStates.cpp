@@ -35,6 +35,10 @@ void FBodySprintingState::OnCrouchToggle(ACharacterCodeTest& Ctx) { Ctx.SetBodyS
 void FBodySprintingState::OnJump(ACharacterCodeTest& Ctx)         { Ctx.TryJump(); }
 
 // ---- Crouching ----
+
+// Crouching doesn't currently work, but isn't required. 
+// May review at a later date.
+
 void FBodyCrouchingState::Enter(ACharacterCodeTest& Ctx)
 {
 	Ctx.ApplyRunning(false);
@@ -45,12 +49,12 @@ void FBodyCrouchingState::Tick(ACharacterCodeTest& Ctx, float DeltaTime) { Ctx.R
 
 void FBodyCrouchingState::OnSprintSet(ACharacterCodeTest& Ctx, bool bWantSprint)
 {
-	if (bWantSprint && Ctx.CanSprint()) Ctx.SetBodyState(EBodyState::Sprinting); // Exit stands up
+	if (bWantSprint && Ctx.CanSprint()) Ctx.SetBodyState(EBodyState::Sprinting); 
 }
 void FBodyCrouchingState::OnCrouchToggle(ACharacterCodeTest& Ctx) { Ctx.SetBodyState(EBodyState::Normal); }
 void FBodyCrouchingState::OnJump(ACharacterCodeTest& Ctx)
 {
-	if (!Ctx.CanJump()) return; // don't stand up for a jump that can't happen
+	if (!Ctx.CanJump()) return; 
 	Ctx.SetBodyState(EBodyState::Normal);
 	Ctx.TryJump();
 }
