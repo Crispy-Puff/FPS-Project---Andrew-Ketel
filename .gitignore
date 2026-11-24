@@ -1,0 +1,18 @@
+# Generated, rebuilt by the engine
+Binaries/
+Intermediate/
+DerivedDataCache/
+Saved/
+.vs/
+.idea/
+
+# Generated project files
+*.sln
+*.suo
+*.VC.db
+*.opensdf
+*.sdf
+*.xcodeproj
+*.xcworkspace
+*.slnx
+Automation_*.sln
